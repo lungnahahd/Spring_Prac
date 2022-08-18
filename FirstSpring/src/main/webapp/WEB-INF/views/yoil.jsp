@@ -6,10 +6,6 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+<P>  ${year } 년 ${month } 월 ${day } 일은 ${yoil } 입니다!!   </P>
 </body>
 </html>

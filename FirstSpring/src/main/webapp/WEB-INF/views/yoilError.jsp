@@ -7,9 +7,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	잘못된 요청입니다. 년, 월, 일을 모두 정확하고 올바르게 입력해주세요.
 </h1>
-
-<P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
