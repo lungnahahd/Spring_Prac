@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RequestParamTest {
+	// 에러 처리를 하는 코드
+	// Exception.class는 모든 에러의 조상으로 모든 에러를 처리 가능
 	@ExceptionHandler(Exception.class)
 	public String catcher(Exception ex) {
 		return "yoilError";
