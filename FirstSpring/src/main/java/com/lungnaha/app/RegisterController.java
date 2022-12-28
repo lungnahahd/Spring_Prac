@@ -9,4 +9,9 @@ public class RegisterController {
 	public String register() {
 		return "registerForm"; // WEB-INF/views/registerForm.jsp 의미  
 	}
+	
+	@RequestMapping("/register/save")
+	public String save() {
+		return "registerinfo";
+	}
 }
