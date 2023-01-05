@@ -3,7 +3,9 @@ package com.lungnaha.app;
 import java.net.URLEncoder;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +20,26 @@ public class LoginController {
 		return "loginForm";
 	}
 	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();// 세션을 종료 
+		
+		
+		return "redirect:/";
+	}
+	
 	@PostMapping("/login")
-	public String login(String id, String pwd, boolean rememberId, HttpServletResponse response) throws Exception {
+	public String login(String id, String pwd, boolean rememberId, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		// id와 pwd를 확인
 		if(!loginCheck(id,pwd)) {
 			String msg = URLEncoder.encode("id 또는 pwd가 일치하지 않습니다.","utf-8");
 			return "redirect:/login/login?msg=" + msg;
 		}
+		
+		HttpSession session = request.getSession();// 세션 가져오기
+		session.setAttribute("id", id);// 세션에 정보 포함 
+		
 		Cookie cookie = new Cookie("id",id); // 쿠키 생성
 		if(rememberId) {
 			cookie.setMaxAge(60*60*24); // 유효기간 지정
