@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title>fastcampus</title>
+    <title>LUNGNAHA</title>
     <link rel="stylesheet" href="<c:url value='/css/menu.css'/>">
 </head>
 <body>
